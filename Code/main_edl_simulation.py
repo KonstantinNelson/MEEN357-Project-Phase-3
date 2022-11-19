@@ -63,6 +63,7 @@ axs[6].set_title('position of rover relative to sky crane vs. time')
 axs[6].grid()
 fig.tight_layout()
 
+
 plot2 = plt.figure(1)
 fig2, axs2 = plt.subplots(2)
 sky_crane_hover_pos = Y[1, :]
@@ -77,4 +78,4 @@ axs2[1].plot(t,sky_crane_hover_pos)
 axs2[1].set_title('position of sky crane vs. time')
 axs2[1].grid()
 plt.tight_layout()
-
+plt.show()

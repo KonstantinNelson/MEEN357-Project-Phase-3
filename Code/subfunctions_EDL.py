@@ -115,15 +115,17 @@ def F_drag_descent(edl_system,planet,altitude,velocity):
     else:
         ACd_parachute = 0.0
     
+
     # #Mach Effeciency Factor corrention
-    mach = v2M_Mars(velocity,altitude)
-    if 0.7<mach and mach <2.6:
-        mach_ref = [0.25,0.5,0.65,0.7,0.8,0.9,0.95,1.0,1.1,1.2,1.3,1.4,1.5,1.6,1.8,1.9,2.0,2.2,2.5,2.6]
-        MEF_ref = [1.0,1,1,.98,.9,.72,.66,.76,.9,.96,.99,.999,.992,.98,.9,.85,.82,.75,.65,.62]
-        fun = interp1d(mach_ref, MEF_ref,kind='quadratic',) # Interpolate MEF data
-        MEF = fun(mach) # Get MEF value for our parameters
-        ACd_body *= MEF # Apply MEF factor
-        ACd_parachute *= MEF
+    # mach = v2M_Mars(velocity,altitude)
+    # if 0.7<mach and mach <2.6:
+    #     mach_ref = [0.25,0.5,0.65,0.7,0.8,0.9,0.95,1.0,1.1,1.2,1.3,1.4,1.5,1.6,1.8,1.9,2.0,2.2,2.5,2.6]
+    #     MEF_ref = [1.0,1,1,.98,.9,.72,.66,.76,.9,.96,.99,.999,.992,.98,.9,.85,.82,.75,.65,.62]
+    #     fun = interp1d(mach_ref, MEF_ref,kind='quadratic',) # Interpolate MEF data
+    #     MEF = fun(mach) # Get MEF value for our parameters
+    #     ACd_body *= MEF # Apply MEF factor
+    #     ACd_parachute *= MEF
+
 
     # This computes the ultimate drag force
     F=rhov2*(ACd_body+ACd_parachute)
